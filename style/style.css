@@ -50,11 +50,12 @@ table {
   text-decoration: none;
   color: #3f5d45;
 }
-img,a{
+a{
     display: block;
 }
 img{
-    width: 100%;
+    display: block;
+    max-width: 100%;
 	height: auto;
 }
 .container{
@@ -62,6 +63,16 @@ img{
     padding-top: 30px ;
     margin: 0 auto; 
     font-family:  '微軟正黑體',sans-serif;
+}
+@media (max-width:768px){
+    .container{
+        max-width: 768px;
+    }
+}
+@media (max-width:375px){
+    .container{
+        max-width: 375px;
+    }
 }
 /**/
 .header{
@@ -171,7 +182,7 @@ img{
 .categorynow{
     background: #EAF0ED;
 }
-.category a{
+.category-list a{
     padding: 16px 0;
 }
 .category-list a:hover{
@@ -207,43 +218,34 @@ img{
         width: 100%;
     }
 }
-.content{
+.category-content{
     width: 620px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.content li{
+.category-content li{
     width: 300px;
     margin-bottom: 20px;
     text-align: center;
     position: relative;
 }
-.content  div{
+.category-content  div{
     display: flex;    
 }
-.content p{
+.category-content p{
     width: 58%;
     font-size: 20px;
     font-weight: 400;
     padding: 14px 0;
     border: 1px solid #EAF0ED;
 }
-.content span{
+.category-content span{
     width: 42%;
     font-size: 20px;
     font-weight: bolder;
     padding: 14px 0;
     border: 1px solid #EAF0ED;
-}
-.content a{
-    background: #EAF0ED;
-    font-size: 24px;   
-    font-weight: bolder;
-}
-.content a:hover{
-    color: #EAF0ED;
-    background: #3f5d45;
 }
 .feature-today{
     background: #3F5D45;
@@ -262,14 +264,27 @@ img{
     right: 22px;
     top: 19px;
 }
+.favorite:hover{
+    border: 2px solid red;
+}
+.incart{
+    background: #EAF0ED;
+    font-size: 24px;   
+    font-weight: bolder;
+    padding: 16px 0;
+}
+.incart:hover{
+    color: #EAF0ED;
+    background: #3f5d45;
+}
 @media (max-width:425px){
-    .content li:nth-child(4),.content li:nth-child(5),.content li:nth-child(6){
+    .category-content li:nth-child(4),.content li:nth-child(5),.content li:nth-child(6){
         display: none;
     }
-    .content{
+    .category-content{
         justify-content: center;
     }
-    .content li{
+    .category-content li{
         margin-bottom: 30px;
     }
 }
@@ -316,26 +331,27 @@ img{
     }
 }
 /*form*/
-.subscription{
+.subscribe{
     background: #3F5D45; 
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     padding: 30px 0;
-    max-width: 1024px;
-    margin: 0 auto;
 }
-
-.subscription-title{
+.subscribe-container{
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subscribe-title{
     display: flex;
     align-items: center;
 }
-.subscription-title img{
+.subscribe-title img{
     width: 40px;
     height: 40px;
     margin-right: 20px;
 }
-.subscription-content{
+.subscribe-content{
     font-size: 24px;
     line-height: 33px;
     color: #EAF0ED;
@@ -359,15 +375,28 @@ img{
     border: 0;
     background: #FFE180  url(https://hexschool.github.io/webLayoutTraining1st/student-week1/arrow_forward-24px.png) no-repeat center;
 }
-@media(max-width:767px){
-    .subscription{
+@media(max-width:768px){
+    .subscribe-container{   
+        max-width: 680px;     
         flex-wrap: wrap;
+        justify-content: space-between;
     }
-    .subscription-title{
+    .subscribe-title{
         margin-bottom: 33px;
     }
-    .mail-enter{
-        width: 84%; 
+}
+@media(max-width:425px){
+    .subscribe-container{   
+        justify-content: center;
+    }
+}
+@media(max-width:375px){
+    .subscribe-container{   
+        max-width: 315px;  
+        justify-content: start;  
+    }
+    .subscribe-title{
+        margin: 0 10px 33px;
     }
 }
 /*footer*/
@@ -376,13 +405,12 @@ img{
     padding: 30px 0;
     color: #3F5D45;
     font-family:  '微軟正黑體',sans-serif;      
-    width: 100%;
-    max-width: 1024px;
+}
+.footer-container{
+    max-width: 780px;
     margin: 0 auto;
 }
 .footer-content{
-    width: 75%;
-    margin: 0 auto;
     font-weight: 500;
     display: flex;
     justify-content: space-between;
@@ -410,8 +438,6 @@ img{
     font-weight: 200;
 }
 .footer-official{
-    width: 75%;
-    margin: 0 auto;
     font-size: 16px;
     font-weight: 500;
     display: flex;
@@ -432,7 +458,16 @@ img{
     font-size: 16px;
     font-family: Times;
 }
-@media(max-width:471px){
+
+@media(max-width:768px){
+    .footer-container{   
+        max-width: 680px;     
+    }
+}
+@media(max-width:425px){
+    .footer-container{
+        max-width: 315px;
+    }
     .footer-content h3{
         display: none;
     }
